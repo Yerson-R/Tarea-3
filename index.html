@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewpot" content="width=device-width, initial-scale=1.0">
+
+        <title>Mi calculadora</title>
+        <link href="style/style.css" rel="stylesheet">
+        <script src="calculadora.js"></script>
+    </head>
+    <body class="img">
+        <h1>Mi Calculadora</h1>
+
+        <table>
+            <tr>
+                <td colspan="4"><button  id="Resultado">0</button></td>
+            
+            </tr>
+              
+            <tr>
+                <td><button onClick="n('7')">7</button></td>
+                <td><button onClick="n('8')">8</button></td>
+                <td><button onClick="n('9')">9</button></td>
+                <td><button onClick="n('x')">x</button></td>
+            </tr>
+            <tr>
+                <td><button onClick="n('4')">4</button></td>
+                <td><button onClick="n('5')">5</button></td>
+                <td><button onClick="n('6')">6</button></td>
+                <td><button onClick="n('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onClick="n('1')">1</button></td>
+                <td><button onClick="n('2')">2</button></td>
+                <td><button onClick="n('3')">3</button></td>
+                <td><button onClick="n('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onClick="n('0')">0</button></td>
+                <td><button onClick="n('/')">/</button></td>
+                <td><button onclick="borar()" class="delete">Delete</button></td>
+                <td><button onClick="operar()">=</button></td>
+            </tr>
+        </table>
+
+        <br>
+        <footer>
+            <ul>
+                <li><a href="#">autor: yerson rodríguez</a></li>
+                <li><a href="#">profesor: gustavo</a></li>
+            </ul>
+        </footer>
+        
+        <script>
+            function primeraParte(value) {
+    document.getElementById("Resultado").innerHTML = value;
+}
+function darResultado() {
+    return(document.getElementById("Resultado").innerHTML);
+}
+function n(key) { 
+    var Resultado = darResultado();
+    if (Resultado!="0" || isNaN(key)) primeraParte(Resultado + key);
+    else primeraParte(key);
+}
+
+function operar() {
+    var Resultado = eval(darResultado()); 
+    primeraParte(Resultado);
+}
+function borar() { 
+    primeraParte(0);
+}
+        </script>
+
+    </body>
+</html>
